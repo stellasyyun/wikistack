@@ -11,14 +11,15 @@ then(() => {
   console.log('connected to the database');
 })
 
-app.use('/wiki', wikiRouter);
-app.use('/user', userRouter);
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 app.use(express.static(__dirname));
 app.get('/', (req, res) => {
   res.send(layout(''));
 });
+
+app.use('/wiki', wikiRouter);
+app.use('/user', userRouter);
 
 const PORT = 3000;
 

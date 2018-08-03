@@ -7,11 +7,9 @@ router.get('/', (req, res, next) => {
   res.redirect('/wiki');
 })
 
-router.post('/', (req, res, next) => {
-  console.log(req.body);
-  res.json(req.body);
-/*   const postTitle = Page.title;
-  const postContent = Page.content;
+router.post('/', async (req, res, next) => {
+  const postTitle = req.body.title;
+  const postContent = req.body.content;
 
   const page = new Page({
     title: postTitle,
@@ -21,7 +19,7 @@ router.post('/', (req, res, next) => {
   try {
     await page.save();
     res.redirect('/');
-  } catch (error) { next(error)} */
+  } catch (error) { next(error)}
 })
 
 router.get('/add', (req, res, next) => {

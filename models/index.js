@@ -14,7 +14,8 @@ const Page = db.define('pages', {
     allowNull: false,
     validate: {
       isUrl: true
-    }
+    },
+    defaultValue: 'www.google.com'
   },
   content: {
     type: Sequelize.TEXT,
